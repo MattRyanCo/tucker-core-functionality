@@ -81,23 +81,23 @@ function set_image_meta_upon_image_upload( $post_ID ) {
 
 // Set default featured image if none is set
 function set_default_featured_image( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
-	if ( empty( $post_thumbnail_id ) && empty( $html ) ) {
+	if ( empty( $post_thumbnail_id ) && empty( $html ) && 'car' === get_post_type( $post_id ) ) {
 		$upload_dir = wp_get_upload_dir();
-		$default_image_url = $upload_dir['baseurl'] . '/post-default.png';
+		$default_image_url = $upload_dir['baseurl'] . '/uploads/no-image-currently-in-the-shop-1209.jpg';
 		$html = '<img src="' . esc_url( $default_image_url ) . '" class="wp-post-image" alt="Default Image"/>';
 	}
 	return $html;
 }
-// add_filter( 'post_thumbnail_html','set_default_featured_image', 10, 5 );
+add_filter( 'post_thumbnail_html','set_default_featured_image', 10, 5 );
  
 function set_default_featured_image_url( $url, $post_id ) {
     if ( empty( get_post_thumbnail_id( $post_id ) ) ) {
 		$upload_dir = wp_get_upload_dir();
-		$url = $upload_dir['baseurl'] . '/post-default.png';
+		$url = $upload_dir['baseurl'] . '/uploads/no-image-currently-in-the-shop-1209.jpg';
     }
     return $url;
 }
-// add_filter( 'default_post_thumbnail_url','set_default_featured_image_url', 10, 2 );
+add_filter( 'default_post_thumbnail_url','set_default_featured_image_url', 10, 2 );
 
 /**
  * Create Custom Image Size
@@ -109,6 +109,8 @@ function create_custom_image_sizes() {
 	add_image_size( 'front-car-gallery-size', 266, 177, true );
 	// Image size for car gallery on 'The Cars' interior page
 	add_image_size( 'interior-car-gallery-size', 133, 101, true );
+	// Image size for car gallery on each car's post detail page
+	add_image_size( 'individual-car-detail-size', 300, 200, true );
 }
 
 add_action( 'after_setup_theme', 'create_custom_image_sizes' );

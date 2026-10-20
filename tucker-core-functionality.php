@@ -1,12 +1,13 @@
 <?php
 /**
- * Plugin Name: TAPS Core Functionality
- * Plugin URI: https://github.com/mattryanco/taps-core-functionality
+ * Plugin Name: Tucker Core Functionality
+ * Plugin URI: https://github.com/mattryanco/tucker-core-functionality
  * Description: This contains core functionality for tuckerclug.org. It should remain activated.
- * Version: 0.1.0
+ * Version: 1.0.0
  * Author: Matt Ryan
- * Author URI: https://capwebsolutions.com
- * GitHub Plugin URI: https://github.com/mattryanco/taps-core-functionality
+ * Author URI: https://mattryan.co
+ * GitHub Plugin URI: https://github.com/mattryanco/tucker-core-functionality
+ * Primary Branch: main
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
